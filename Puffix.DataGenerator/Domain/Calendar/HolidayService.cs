@@ -37,7 +37,8 @@ public class HolidayService(IConfiguration configuration, IHolidayApiHttpReposit
 
     public async Task<IEnumerable<Holiday>> GetHolidays(int year)
     {
-        IHolidayApiQueryInformation queryInformation = holidayApiHttpRepository.BuildUnauthenticatedQuery(HttpMethod.Get, holidayServiceUri, $"{year}.json", string.Empty, string.Empty);
+        IDictionary<string, string> queryParameters = new Dictionary<string, string>();
+        IHolidayApiQueryInformation queryInformation = holidayApiHttpRepository.BuildUnauthenticatedQuery(HttpMethod.Get, holidayServiceUri, $"{year}.json", queryParameters, string.Empty);
 
         Dictionary<string, string> result = await holidayApiHttpRepository.HttpJsonAsync<Dictionary<string, string>>(queryInformation);
         return ConvertHolidays(result);

@@ -2,4 +2,4 @@
 
 namespace DataGenerator.Infra;
 
-public interface IHolidayApiToken : IHeaderToken { }
+public interface IHolidayApiToken : IEmptyToken { }
