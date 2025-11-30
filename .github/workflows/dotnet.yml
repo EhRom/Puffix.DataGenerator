@@ -1,14 +1,19 @@
 name: Build and package
 
 on:
+  workflow_dispatch:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches:
+      - main 
+    paths:
+      - 'src/**'
+      - 'iac/**'
+      - '!**.md'
+      - '.github/workflows/dotnet.yml'
 
 env:
-  DOTNET_VERSION: '9.0.x'
-  PACKAGE_VERSION: 0.4.0
+  DOTNET_VERSION: '10.0.x'
+  PACKAGE_VERSION: 0.5.0
   APP_NAME: Puffix.DataGenerator
 
 jobs:
@@ -17,10 +22,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
 
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@v4
+      uses: actions/setup-dotnet@v5
       with:
         dotnet-version: ${{ env.DOTNET_VERSION }}
     
@@ -53,7 +58,7 @@ jobs:
         cp -a ./${{ env.APP_NAME }}-win-x64.* ../${{ env.APP_NAME }}-${{ env.PACKAGE_VERSION }}/
     
     - name: Upload
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       with: 
         name: ${{ env.APP_NAME }}-${{ env.PACKAGE_VERSION }}
         path: '${{ env.APP_NAME }}-${{ env.PACKAGE_VERSION }}'

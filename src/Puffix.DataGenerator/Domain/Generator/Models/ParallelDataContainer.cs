@@ -34,7 +34,7 @@ public class ParallelDataContainer(IEnumerable<Holiday> holidays, IPeriod period
 
     public override string GetCsvContent(char csvSeparatorCharacter)
     {
-        ICollection<IData> dataCollection = generatedData.Values.SelectMany(v => v).ToList();
+        ICollection<IData> dataCollection = generatedData.Values.SelectMany(v => v).OrderBy(v => v.Date).ToList();
 
         return IDataContainer.GetCsvContent(csvSeparatorCharacter, dataCollection);
     }

@@ -6,7 +6,7 @@ namespace DataGenerator.Domain.Generator;
 
 public class SetupService(IConfiguration configuration) : ISetupService
 {
-    private const string START_TEXT = "stat";
+    private const string START_TEXT = "start";
     private const string END_TEXT = "end";
 
     private readonly Lazy<int> maxTryCountLazy = new(() =>
