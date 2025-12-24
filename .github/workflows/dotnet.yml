@@ -13,7 +13,7 @@ on:
 
 env:
   DOTNET_VERSION: '10.0.x'
-  PACKAGE_VERSION: 0.5.0
+  PACKAGE_VERSION: 0.5.1
   APP_NAME: Puffix.DataGenerator
 
 jobs:
