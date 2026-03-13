@@ -13,7 +13,7 @@ on:
 
 env:
   DOTNET_VERSION: '10.0.x'
-  PACKAGE_VERSION: 0.5.3
+  PACKAGE_VERSION: 10.0.5
   APP_NAME: Puffix.DataGenerator
 
 jobs:
@@ -58,7 +58,7 @@ jobs:
         cp -a ./${{ env.APP_NAME }}-win-x64.* ../${{ env.APP_NAME }}-${{ env.PACKAGE_VERSION }}/
     
     - name: Upload
-      uses: actions/upload-artifact@v5
+      uses: actions/upload-artifact@v7
       with: 
         name: ${{ env.APP_NAME }}-${{ env.PACKAGE_VERSION }}
         path: '${{ env.APP_NAME }}-${{ env.PACKAGE_VERSION }}'
