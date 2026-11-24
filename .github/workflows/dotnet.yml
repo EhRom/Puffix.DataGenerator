@@ -12,8 +12,8 @@ on:
       - '.github/workflows/dotnet.yml'
 
 env:
-  DOTNET_VERSION: '10.0.x'
-  PACKAGE_VERSION: 10.0.14
+  DOTNET_VERSION: '11.0.x'
+  PACKAGE_VERSION: 11.0.0
   APP_NAME: Puffix.DataGenerator
 
 jobs:
